@@ -1,0 +1,29 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch: # Mengizinkan Anda menekan tombol jalankan manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build APK (Debug)
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: aplikasi-android-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
