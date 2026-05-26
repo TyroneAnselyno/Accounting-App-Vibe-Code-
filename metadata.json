@@ -1,0 +1,6 @@
+{
+  "name": "AkunSaku SaaS",
+  "description": "SaaS Akuntansi UMKM Indonesia dengan WhatsApp NLP & SAK EMKM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
